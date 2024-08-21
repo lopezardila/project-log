@@ -38,17 +38,9 @@ const Landing = (props) => {
           const childKey = childSnapshot.key;
           const childData = childSnapshot.val();
           console.log(childData);
-          // tmp.push({
-          //   key: childKey,
-          //   data: _.map(childData, (value, key) => ({
-          //     key,
-          //     value: value.value,
-          //     date: value.date,
-          //   })),
-          // });
+          tmp.push({ ...childData });
           // ...
         });
-        console.log(tmp);
         setData(tmp);
       },
       {
@@ -56,15 +48,57 @@ const Landing = (props) => {
       }
     );
   }, []);
+  console.log(data);
   return (
     <section
       className="landing"
       style={{
         display: "flex",
-        flexDirection: "row",
+        flexDirection: "column",
         justifyContent: "flex-start",
       }}
-    ></section>
+    >
+      {_.map(data, (item) => {
+        return item.country ? (
+          <div>
+            <div style={{ color: "#78f089" }}>
+              {item.id} {item.country} {item.city} {item.ip} {item._date}{" "}
+              {item._time}
+            </div>
+          </div>
+        ) : (
+          <div style={{ marginBottom: "20px" }}>
+            <div>
+              ------------------- {item.ip} {item._date} {item._time}{" "}
+              -----------------------------
+            </div>
+            <div>
+              <span>OS: </span>
+              <span style={{ color: "yellow", marginRight: 20 }}>
+                {item.os}
+              </span>
+              <span>Release: </span>
+              <span style={{ color: "yellow", marginRight: 20 }}>
+                {item.release}
+              </span>
+
+              <span>Host: </span>
+              <span style={{ color: "yellow", marginRight: 20 }}>
+                {item.host}
+              </span>
+
+              <span>User Name: </span>
+              <span style={{ color: "yellow", marginRight: 20 }}>
+                {item.userName}
+              </span>
+            </div>
+            <div>
+              --------------------------------------------------------------------------------------------------------
+            </div>
+          </div>
+        );
+      })}
+    </section>
   );
 };
 
