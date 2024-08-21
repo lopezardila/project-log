@@ -43,15 +43,13 @@ const Landing = (props) => {
         });
         setData(tmp);
         setTimeout(function () {
-          console.log(document.getElementById("landing").scroll);
           document
             .getElementById("landing")
             .scrollTo({ top: document.getElementById("landing").scrollHeight });
-          console.log(document.getElementById("landing").scrollHeight);
         }, 100);
       },
       {
-        onlyOnce: true,
+        // onlyOnce: true,
       }
     );
   }, []);
