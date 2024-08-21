@@ -29,13 +29,13 @@ const Landing = (props) => {
   useEffect(() => {
     // Fetching data
     const dataRef = ref(rtdb, "project");
-    let executionTimes = {};
-    let callTimes = {};
     onValue(
       dataRef,
       (snapshot) => {
         // console.log(snapshot);
         let tmp = [];
+        let executionTimes = {};
+        let callTimes = {};
         snapshot.forEach((childSnapshot) => {
           const childKey = childSnapshot.key;
           const childData = childSnapshot.val();
