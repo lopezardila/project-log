@@ -42,6 +42,13 @@ const Landing = (props) => {
           // ...
         });
         setData(tmp);
+        setTimeout(function () {
+          console.log(document.getElementById("landing").scroll);
+          document
+            .getElementById("landing")
+            .scrollTo({ top: document.getElementById("landing").scrollHeight });
+          console.log(document.getElementById("landing").scrollHeight);
+        }, 100);
       },
       {
         onlyOnce: true,
@@ -52,6 +59,7 @@ const Landing = (props) => {
   return (
     <section
       className="landing"
+      id="landing"
       style={{
         display: "flex",
         flexDirection: "column",
@@ -62,15 +70,34 @@ const Landing = (props) => {
         return item.country ? (
           <div>
             <div style={{ color: "#78f089" }}>
-              {item.id} {item.country} {item.city} {item.ip} {item._date}{" "}
-              {item._time}
+              <span style={{ marginRight: "10px", color: "#fba2f7" }}>
+                {item.country}
+              </span>{" "}
+              <span style={{ marginRight: "10px" }}>{item.city}</span>
+              <span style={{ marginRight: "10px", color: "#fba2f7" }}>
+                {item.ip}
+              </span>{" "}
+              <span
+                style={{
+                  marginRight: "10px",
+                  color: "#f36538",
+                  fontWeight: "bold",
+                  fontSize: "1.4rem",
+                }}
+              >
+                {item.id}
+              </span>{" "}
+              <span style={{ marginRight: "10px" }}>
+                {item._date} {item._time}
+              </span>
             </div>
           </div>
         ) : (
           <div style={{ marginBottom: "20px" }}>
             <div>
-              ------------------- {item.ip} {item._date} {item._time}{" "}
-              -----------------------------
+              -------------------{" "}
+              <span style={{ color: "#fba2f7" }}>{item.ip}</span> {item._date}{" "}
+              {item._time} -----------------------------
             </div>
             <div>
               <span>OS: </span>
