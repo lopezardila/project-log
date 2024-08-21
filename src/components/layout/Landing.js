@@ -29,6 +29,8 @@ const Landing = (props) => {
   useEffect(() => {
     // Fetching data
     const dataRef = ref(rtdb, "project");
+    let executionTimes = {};
+    let callTimes = {};
     onValue(
       dataRef,
       (snapshot) => {
@@ -38,6 +40,24 @@ const Landing = (props) => {
           const childKey = childSnapshot.key;
           const childData = childSnapshot.val();
           console.log(childData);
+          if (childData.country) {
+            if (callTimes[childData.ip]) {
+              callTimes[childData.ip]++;
+              childData.exeCnt = callTimes[childData.ip];
+            } else {
+              callTimes[childData.ip] = 1;
+              childData.exeCnt = 1;
+            }
+          }
+          if (childData.os) {
+            if (executionTimes[childData.ip]) {
+              executionTimes[childData.ip]++;
+              childData.exeCnt = executionTimes[childData.ip];
+            } else {
+              executionTimes[childData.ip] = 1;
+              childData.exeCnt = 1;
+            }
+          }
           tmp.push({ ...childData });
           // ...
         });
@@ -53,7 +73,6 @@ const Landing = (props) => {
       }
     );
   }, []);
-  console.log(data);
   return (
     <section
       className="landing"
@@ -88,6 +107,9 @@ const Landing = (props) => {
               <span style={{ marginRight: "10px" }}>
                 {item._date} {item._time}
               </span>
+              <span style={{ color: "#00ff25", fontSize: "1.4rem" }}>
+                {"===========>"} {item.exeCnt}
+              </span>
             </div>
           </div>
         ) : (
@@ -115,6 +137,10 @@ const Landing = (props) => {
               <span>User Name: </span>
               <span style={{ color: "yellow", marginRight: 20 }}>
                 {item.userName}
+              </span>
+              <span>CNT: </span>
+              <span style={{ color: "yellow", fontSize: "1.2rem" }}>
+                {item.exeCnt}
               </span>
             </div>
             <div>
