@@ -62,6 +62,17 @@ const Landing = (props) => {
           // ...
         });
         setData(tmp);
+        if (tmp[tmp.length - 1].country) {
+          console.log("dasf");
+          new Notification(tmp[tmp.length - 1].id, {
+            body:
+              tmp[tmp.length - 1].country +
+              "\n" +
+              tmp[tmp.length - 1].city +
+              "\n" +
+              tmp[tmp.length - 1].ip,
+          });
+        }
         setTimeout(function () {
           document
             .getElementById("landing")
