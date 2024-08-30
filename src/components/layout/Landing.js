@@ -123,6 +123,14 @@ const Landing = (props) => {
               </span>
             </div>
           </div>
+        ) : item.message ? (
+          <div style={{ marginBottom: "20px" }}>
+            <div>
+              <span style={{ color: "#fba2f7" }}>{item.ip} Message:</span>
+              {item.message} ----------------------------- {item._date}{" "}
+              {item._time}
+            </div>
+          </div>
         ) : (
           <div style={{ marginBottom: "20px" }}>
             <div>
