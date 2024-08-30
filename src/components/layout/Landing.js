@@ -96,7 +96,7 @@ const Landing = (props) => {
     >
       {_.map(data, (item) => {
         return item.country ? (
-          <div>
+          <div style={{ marginTop: "20px" }}>
             <div style={{ color: "#78f089" }}>
               <span style={{ marginRight: "10px", color: "#fba2f7" }}>
                 {item.country}
