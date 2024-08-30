@@ -124,7 +124,7 @@ const Landing = (props) => {
             </div>
           </div>
         ) : item.message ? (
-          <div style={{ marginBottom: "20px" }}>
+          <div>
             <div>
               <span style={{ color: "#fba2f7" }}>{item.ip} Message:</span>
               {item.message} ----------------------------- {item._date}{" "}
