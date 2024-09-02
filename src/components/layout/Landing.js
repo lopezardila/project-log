@@ -138,40 +138,42 @@ const Landing = (props) => {
               </div>
             </div>
           ) : (
-            <div style={{ marginBottom: "20px" }}>
-              <div>
-                -------------------{" "}
-                <span style={{ color: "#fba2f7" }}>{item.ip}</span> {item._date}{" "}
-                {item._time} -----------------------------
-              </div>
-              <div>
-                <span>OS: </span>
-                <span style={{ color: "yellow", marginRight: 20 }}>
-                  {item.os}
-                </span>
-                <span>Release: </span>
-                <span style={{ color: "yellow", marginRight: 20 }}>
-                  {item.release}
-                </span>
+            item.os && (
+              <div style={{ marginBottom: "20px" }}>
+                <div>
+                  -------------------{" "}
+                  <span style={{ color: "#fba2f7" }}>{item.ip}</span>{" "}
+                  {item._date} {item._time} -----------------------------
+                </div>
+                <div>
+                  <span>OS: </span>
+                  <span style={{ color: "yellow", marginRight: 20 }}>
+                    {item.os}
+                  </span>
+                  <span>Release: </span>
+                  <span style={{ color: "yellow", marginRight: 20 }}>
+                    {item.release}
+                  </span>
 
-                <span>Host: </span>
-                <span style={{ color: "yellow", marginRight: 20 }}>
-                  {item.host}
-                </span>
+                  <span>Host: </span>
+                  <span style={{ color: "yellow", marginRight: 20 }}>
+                    {item.host}
+                  </span>
 
-                <span>User Name: </span>
-                <span style={{ color: "yellow", marginRight: 20 }}>
-                  {item.userName}
-                </span>
-                <span>CNT: </span>
-                <span style={{ color: "yellow", fontSize: "1.2rem" }}>
-                  {item.exeCnt}
-                </span>
+                  <span>User Name: </span>
+                  <span style={{ color: "yellow", marginRight: 20 }}>
+                    {item.userName}
+                  </span>
+                  <span>CNT: </span>
+                  <span style={{ color: "yellow", fontSize: "1.2rem" }}>
+                    {item.exeCnt}
+                  </span>
+                </div>
+                <div>
+                  --------------------------------------------------------------------------------------------------------
+                </div>
               </div>
-              <div>
-                --------------------------------------------------------------------------------------------------------
-              </div>
-            </div>
+            )
           );
         })}
       </div>
