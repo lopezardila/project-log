@@ -195,9 +195,9 @@ const Landing = (props) => {
           (item) =>
             item.message && (
               <div style={{ wordBreak: "break-all", marginBottom: "20px" }}>
-                <h3 style={{ color: "#fba2f7" }}>
+                <h5 style={{ color: "#fba2f7" }}>
                   {item.ip} Message({item.id}): {item._date} {item._time}
-                </h3>
+                </h5>
                 <div>{item.message}</div>
               </div>
             )
