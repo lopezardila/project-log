@@ -74,12 +74,12 @@ const Landing = (props) => {
           });
         }
         setTimeout(function () {
-          document
-            .getElementById("upload_log")
-            .scrollTo({ top: document.getElementById("landing").scrollHeight });
-          document
-            .getElementById("execute_log")
-            .scrollTo({ top: document.getElementById("landing").scrollHeight });
+          document.getElementById("upload_log").scrollTo({
+            top: document.getElementById("upload_log").scrollHeight,
+          });
+          document.getElementById("execute_log").scrollTo({
+            top: document.getElementById("execute_log").scrollHeight,
+          });
         }, 100);
       },
       {
@@ -182,6 +182,7 @@ const Landing = (props) => {
           flexDirection: "column",
           justifyContent: "flex-start",
           height: "100%",
+          whiteSpace: "pre-wrap",
           overflow: "auto",
         }}
         id="upload_log"
@@ -192,7 +193,9 @@ const Landing = (props) => {
             item.message && (
               <div>
                 <div>
-                  <span style={{ color: "#fba2f7" }}>{item.ip} Message:</span>
+                  <span style={{ color: "#fba2f7" }}>
+                    {item.ip} Message({item.id}):{" "}
+                  </span>
                   {item.message} ----------------------------- {item._date}{" "}
                   {item._time}
                 </div>
