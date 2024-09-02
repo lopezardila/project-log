@@ -194,10 +194,16 @@ const Landing = (props) => {
           data,
           (item) =>
             item.message && (
-              <div style={{ wordBreak: "break-all", marginBottom: "20px" }}>
-                <h5 style={{ color: "#fba2f7" }}>
+              <div
+                style={{
+                  wordBreak: "break-all",
+                  marginBottom: "20px",
+                  padding: "10px",
+                }}
+              >
+                <h6 style={{ color: "#fba2f7" }}>
                   {item.ip} Message({item.id}): {item._date} {item._time}
-                </h5>
+                </h6>
                 <div>{item.message}</div>
               </div>
             )
