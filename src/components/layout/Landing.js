@@ -90,84 +90,105 @@ const Landing = (props) => {
       id="landing"
       style={{
         display: "flex",
-        flexDirection: "column",
+        flexDirection: "row",
         justifyContent: "flex-start",
       }}
     >
-      {_.map(data, (item) => {
-        return item.country ? (
-          <div style={{ marginTop: "20px" }}>
-            <div style={{ color: "#78f089" }}>
-              <span style={{ marginRight: "10px", color: "#fba2f7" }}>
-                {item.country}
-              </span>{" "}
-              <span style={{ marginRight: "10px" }}>{item.city}</span>
-              <span style={{ marginRight: "10px", color: "#fba2f7" }}>
-                {item.ip}
-              </span>{" "}
-              <span
-                style={{
-                  marginRight: "10px",
-                  color: "#f36538",
-                  fontWeight: "bold",
-                  fontSize: "1.4rem",
-                }}
-              >
-                {item.id}
-              </span>{" "}
-              <span style={{ marginRight: "10px" }}>
-                {item._date} {item._time}
-              </span>
-              <span style={{ color: "#00ff25", fontSize: "1.4rem" }}>
-                {"===========>"} {item.exeCnt}
-              </span>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "flex-start",
+        }}
+      >
+        {_.map(data, (item) => {
+          return item.country ? (
+            <div style={{ marginTop: "20px" }}>
+              <div style={{ color: "#78f089" }}>
+                <span style={{ marginRight: "10px", color: "#fba2f7" }}>
+                  {item.country}
+                </span>{" "}
+                <span style={{ marginRight: "10px" }}>{item.city}</span>
+                <span style={{ marginRight: "10px", color: "#fba2f7" }}>
+                  {item.ip}
+                </span>{" "}
+                <span
+                  style={{
+                    marginRight: "10px",
+                    color: "#f36538",
+                    fontWeight: "bold",
+                    fontSize: "1.4rem",
+                  }}
+                >
+                  {item.id}
+                </span>{" "}
+                <span style={{ marginRight: "10px" }}>
+                  {item._date} {item._time}
+                </span>
+                <span style={{ color: "#00ff25", fontSize: "1.4rem" }}>
+                  {"===========>"} {item.exeCnt}
+                </span>
+              </div>
             </div>
-          </div>
-        ) : item.message ? (
-          <div>
-            <div>
-              <span style={{ color: "#fba2f7" }}>{item.ip} Message:</span>
-              {item.message} ----------------------------- {item._date}{" "}
-              {item._time}
-            </div>
-          </div>
-        ) : (
-          <div style={{ marginBottom: "20px" }}>
-            <div>
-              -------------------{" "}
-              <span style={{ color: "#fba2f7" }}>{item.ip}</span> {item._date}{" "}
-              {item._time} -----------------------------
-            </div>
-            <div>
-              <span>OS: </span>
-              <span style={{ color: "yellow", marginRight: 20 }}>
-                {item.os}
-              </span>
-              <span>Release: </span>
-              <span style={{ color: "yellow", marginRight: 20 }}>
-                {item.release}
-              </span>
+          ) : (
+            <div style={{ marginBottom: "20px" }}>
+              <div>
+                -------------------{" "}
+                <span style={{ color: "#fba2f7" }}>{item.ip}</span> {item._date}{" "}
+                {item._time} -----------------------------
+              </div>
+              <div>
+                <span>OS: </span>
+                <span style={{ color: "yellow", marginRight: 20 }}>
+                  {item.os}
+                </span>
+                <span>Release: </span>
+                <span style={{ color: "yellow", marginRight: 20 }}>
+                  {item.release}
+                </span>
 
-              <span>Host: </span>
-              <span style={{ color: "yellow", marginRight: 20 }}>
-                {item.host}
-              </span>
+                <span>Host: </span>
+                <span style={{ color: "yellow", marginRight: 20 }}>
+                  {item.host}
+                </span>
 
-              <span>User Name: </span>
-              <span style={{ color: "yellow", marginRight: 20 }}>
-                {item.userName}
-              </span>
-              <span>CNT: </span>
-              <span style={{ color: "yellow", fontSize: "1.2rem" }}>
-                {item.exeCnt}
-              </span>
+                <span>User Name: </span>
+                <span style={{ color: "yellow", marginRight: 20 }}>
+                  {item.userName}
+                </span>
+                <span>CNT: </span>
+                <span style={{ color: "yellow", fontSize: "1.2rem" }}>
+                  {item.exeCnt}
+                </span>
+              </div>
+              <div>
+                --------------------------------------------------------------------------------------------------------
+              </div>
             </div>
-            <div>
-              --------------------------------------------------------------------------------------------------------
-            </div>
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "flex-start",
+        }}
+      >
+        {_.map(
+          data,
+          (item) =>
+            item.message && (
+              <div>
+                <div>
+                  <span style={{ color: "#fba2f7" }}>{item.ip} Message:</span>
+                  {item.message} ----------------------------- {item._date}{" "}
+                  {item._time}
+                </div>
+              </div>
+            )
+        )}
+      </div>
     </section>
   );
 };
