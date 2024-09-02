@@ -186,6 +186,7 @@ const Landing = (props) => {
           height: "100%",
           whiteSpace: "pre-wrap",
           overflow: "auto",
+          width: "50%",
         }}
         id="upload_log"
       >
@@ -193,14 +194,11 @@ const Landing = (props) => {
           data,
           (item) =>
             item.message && (
-              <div>
-                <div>
-                  <span style={{ color: "#fba2f7" }}>
-                    {item.ip} Message({item.id}):{" "}
-                  </span>
-                  {item.message} ----------------------------- {item._date}{" "}
-                  {item._time}
-                </div>
+              <div style={{ wordBreak: "break-all", marginBottom: "20px" }}>
+                <h3 style={{ color: "#fba2f7" }}>
+                  {item.ip} Message({item.id}): {item._date} {item._time}
+                </h3>
+                <div>{item.message}</div>
               </div>
             )
         )}
