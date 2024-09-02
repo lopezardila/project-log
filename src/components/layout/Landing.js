@@ -75,7 +75,10 @@ const Landing = (props) => {
         }
         setTimeout(function () {
           document
-            .getElementById("landing")
+            .getElementById("upload_log")
+            .scrollTo({ top: document.getElementById("landing").scrollHeight });
+          document
+            .getElementById("execute_log")
             .scrollTo({ top: document.getElementById("landing").scrollHeight });
         }, 100);
       },
@@ -97,9 +100,13 @@ const Landing = (props) => {
       <div
         style={{
           display: "flex",
+          flex: 1,
           flexDirection: "column",
           justifyContent: "flex-start",
+          height: "100%",
+          overflow: "auto",
         }}
+        id="execute_log"
       >
         {_.map(data, (item) => {
           return item.country ? (
@@ -171,9 +178,13 @@ const Landing = (props) => {
       <div
         style={{
           display: "flex",
+          flex: 1,
           flexDirection: "column",
           justifyContent: "flex-start",
+          height: "100%",
+          overflow: "auto",
         }}
+        id="upload_log"
       >
         {_.map(
           data,
