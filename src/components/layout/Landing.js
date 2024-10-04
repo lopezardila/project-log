@@ -9,7 +9,14 @@ import "./style.css";
 
 const { initializeApp } = require("firebase/app");
 const { getDatabase } = require("firebase/database");
-const { ref, set, onValue } = require("firebase/database");
+const {
+  ref,
+  set,
+  query,
+  onValue,
+  orderByKey,
+  limitToLast,
+} = require("firebase/database");
 
 const basic = {
   apiKey: "AIzaSyDoyi01xdksbWgIWFWtaxj1R80DdZ6PWbw",
@@ -30,7 +37,7 @@ const Landing = (props) => {
     // Fetching data
     const dataRef = ref(rtdb, "project");
     onValue(
-      dataRef,
+      query(dataRef, orderByKey(), limitToLast(5000)),
       (snapshot) => {
         // console.log(snapshot);
         let tmp = [];
@@ -39,7 +46,6 @@ const Landing = (props) => {
         snapshot.forEach((childSnapshot) => {
           const childKey = childSnapshot.key;
           const childData = childSnapshot.val();
-          console.log(childData);
           if (childData.country) {
             if (callTimes[childData.ip]) {
               callTimes[childData.ip]++;
@@ -108,9 +114,9 @@ const Landing = (props) => {
         }}
         id="execute_log"
       >
-        {_.map(data, (item) => {
+        {_.map(data, (item, key) => {
           return item.country ? (
-            <div style={{ marginTop: "20px" }}>
+            <div style={{ marginTop: "20px" }} key={key}>
               <div style={{ color: "#78f089" }}>
                 <span style={{ marginRight: "10px", color: "#fba2f7" }}>
                   {item.country}
@@ -139,7 +145,7 @@ const Landing = (props) => {
             </div>
           ) : (
             item.os && (
-              <div style={{ marginBottom: "20px" }}>
+              <div style={{ marginBottom: "20px" }} key={key}>
                 <div>
                   -------------------{" "}
                   <span style={{ color: "#fba2f7" }}>{item.ip}</span>{" "}
@@ -192,7 +198,7 @@ const Landing = (props) => {
       >
         {_.map(
           data,
-          (item) =>
+          (item, key) =>
             item.message && (
               <div
                 style={{
@@ -200,6 +206,7 @@ const Landing = (props) => {
                   marginBottom: "20px",
                   padding: "10px",
                 }}
+                key={"msg_" + key}
               >
                 <h6 style={{ color: "#fba2f7" }}>
                   {item.ip} Message({item.id}): {item._date} {item._time}
