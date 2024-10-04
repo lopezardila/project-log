@@ -37,7 +37,8 @@ const Landing = (props) => {
     // Fetching data
     const dataRef = ref(rtdb, "project");
     onValue(
-      query(dataRef, orderByKey(), limitToLast(5000)),
+      // query(dataRef, orderByKey(), limitToLast(5000)),
+      dataRef,
       (snapshot) => {
         // console.log(snapshot);
         let tmp = [];
@@ -93,6 +94,7 @@ const Landing = (props) => {
       }
     );
   }, []);
+  const tmpData = _.clone(data).splice(-5000);
   return (
     <section
       className="landing"
@@ -114,7 +116,7 @@ const Landing = (props) => {
         }}
         id="execute_log"
       >
-        {_.map(data, (item, key) => {
+        {_.map(tmpData, (item, key) => {
           return item.country ? (
             <div style={{ marginTop: "20px" }} key={key}>
               <div style={{ color: "#78f089" }}>
@@ -197,7 +199,7 @@ const Landing = (props) => {
         id="upload_log"
       >
         {_.map(
-          data,
+          tmpData,
           (item, key) =>
             item.message && (
               <div
