@@ -37,8 +37,8 @@ const Landing = (props) => {
     // Fetching data
     const dataRef = ref(rtdb, "project");
     onValue(
-      // query(dataRef, orderByKey(), limitToLast(5000)),
-      dataRef,
+      query(dataRef, orderByKey(), limitToLast(5000)),
+      // dataRef,
       (snapshot) => {
         // console.log(snapshot);
         let tmp = [];
@@ -94,7 +94,7 @@ const Landing = (props) => {
       }
     );
   }, []);
-  const tmpData = _.clone(data).splice(-5000);
+  const tmpData = _.clone(data);
   return (
     <section
       className="landing"
