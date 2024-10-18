@@ -20,9 +20,9 @@ const {
 
 const basic = {
   apiKey: "AIzaSyDoyi01xdksbWgIWFWtaxj1R80DdZ6PWbw",
-  authDomain: "solammbot.firebaseapp.com",
-  projectId: "solammbot",
-  storageBucket: "solammbot.appspot.com",
+  authDomain: "Gold-Dragon.firebaseapp.com",
+  projectId: "Gold-Dragon-784f0",
+  storageBucket: "Gold-Dragon.appspot.com",
   messagingSenderId: "879731928519",
   appId: "1:879731928519:web:875d6ddfbee3d1b0363de2",
   measurementId: "G-0KJ8T512FL",
