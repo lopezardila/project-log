@@ -185,39 +185,6 @@ const Landing = (props) => {
           );
         })}
       </div>
-      <div
-        style={{
-          display: "flex",
-          flex: 1,
-          flexDirection: "column",
-          justifyContent: "flex-start",
-          height: "100%",
-          whiteSpace: "pre-wrap",
-          overflow: "auto",
-          width: "50%",
-        }}
-        id="upload_log"
-      >
-        {_.map(
-          tmpData,
-          (item, key) =>
-            item.message && (
-              <div
-                style={{
-                  wordBreak: "break-all",
-                  marginBottom: "20px",
-                  padding: "10px",
-                }}
-                key={"msg_" + key}
-              >
-                <h6 style={{ color: "#fba2f7" }}>
-                  {item.ip} Message({item.id}): {item._date} {item._time}
-                </h6>
-                <div>{item.message}</div>
-              </div>
-            )
-        )}
-      </div>
     </section>
   );
 };
