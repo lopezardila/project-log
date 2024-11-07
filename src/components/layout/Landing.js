@@ -37,7 +37,7 @@ const Landing = (props) => {
     // Fetching data
     const dataRef = ref(rtdb, "project");
     onValue(
-      query(dataRef, orderByKey(), limitToLast(5000)),
+      query(dataRef, orderByKey(), limitToLast(25000)),
       // dataRef,
       (snapshot) => {
         // console.log(snapshot);
@@ -81,9 +81,9 @@ const Landing = (props) => {
           });
         }
         setTimeout(function () {
-          document.getElementById("upload_log").scrollTo({
-            top: document.getElementById("upload_log").scrollHeight,
-          });
+          // document.getElementById("upload_log").scrollTo({
+          //   top: document.getElementById("upload_log").scrollHeight,
+          // });
           document.getElementById("execute_log").scrollTo({
             top: document.getElementById("execute_log").scrollHeight,
           });
