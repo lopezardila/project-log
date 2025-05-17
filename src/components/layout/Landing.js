@@ -56,7 +56,7 @@ const customStyles = {
 const Landing = (props) => {
   const [data, setData] = useState([]);
   const [logs, setLogData] = useState([]);
-  const [user, setUser] = useState({ team: "4", role: "user" });
+  const [user, setUser] = useState({ team: "4" });
   const [selectedUser, setSelectedUser] = useState(null);
   const [selectedId, setID] = useState(null);
   const [selectedHost, setSelectedHost] = useState(null);
