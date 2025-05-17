@@ -41,7 +41,7 @@
   top: 12px;
   width: 36px;
   height: 36px;
-  content: ' ';
+  content: " ";
   background-color: var(--btn-color);
   border-radius: 50%;
 }
@@ -51,7 +51,7 @@
   top: 19px;
   width: 8px;
   height: 18px;
-  content: ' ';
+  content: " ";
   transform: rotateZ(45deg);
   border: 2px solid var(--controls-box-shadow);
   border-top: none;
@@ -76,8 +76,8 @@
   font-weight: bold;
   text-align: justify;
   font-size: 40px;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
-    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   font-weight: bold;
 }
 
@@ -143,4 +143,16 @@
 }
 iframe {
   display: none;
+}
+
+.pc-info {
+  box-sizing: border-box;
+}
+.pc-info:hover {
+  border: 1px solid lightblue;
+  cursor: pointer;
+}
+.pc-info-selected {
+  border: 1px solid blue;
+  background-color: #c6caf032;
 }
